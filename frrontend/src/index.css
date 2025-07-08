@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@12..96&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Bricolage Grotesque";
+}
+
+/* fonts */
+@theme {
+  --font-anybody: "Anybody", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+}
+
+@layer utilities {
+  .font-bricolage-logo {
+    @apply font-bricolage;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+
+  .font-bricolage-light {
+    @apply font-bricolage;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 87.5;
+  }
+
+  .font-bricolage-bold {
+    @apply font-bricolage;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 87.5;
+  }
+
+  .font-anybody-light {
+    @apply font-anybody;
+    font-family: "Anybody", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+  .font-anybody-bold {
+    @apply font-anybody;
+    font-family: "Anybody", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+}
+
+/* Shiny-text */
+@layer utilities {
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
+    }
+  }
+
+  .animate-shine {
+    animation: shine 5s linear infinite;
+  }
+}

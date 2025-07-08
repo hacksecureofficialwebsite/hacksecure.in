@@ -1,0 +1,17 @@
+/* Example: fade between two gradients */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, #353a5f80, #9ebaf380);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card:hover::before {
+  opacity: 0;
+}
