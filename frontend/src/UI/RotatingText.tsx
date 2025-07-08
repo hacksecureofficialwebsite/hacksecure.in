@@ -35,7 +35,11 @@ export interface RotatingTextProps
   texts: string[];
   transition?: Transition;
   initial?: boolean | Target | VariantLabels;
-  animate?: boolean | VariantLabels | typeof animationControls | TargetAndTransition;
+  animate?:
+    | boolean
+    | VariantLabels
+    | typeof animationControls
+    | TargetAndTransition;
   exit?: Target | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
@@ -238,6 +242,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
                     <motion.span
                       key={charIndex}
                       initial={initial}
+                      //@ts-expect-error don't care err
                       animate={animate}
                       exit={exit}
                       transition={{

@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, ReactNode, RefObject } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  type ReactNode,
+  type RefObject,
+} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -74,7 +80,7 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
           end: scrollEnd,
           scrub: true,
         },
-      },
+      }
     );
   }, [
     scrollContainerRef,
