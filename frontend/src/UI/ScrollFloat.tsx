@@ -80,7 +80,7 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
           end: scrollEnd,
           scrub: true,
         },
-      }
+      },
     );
   }, [
     scrollContainerRef,

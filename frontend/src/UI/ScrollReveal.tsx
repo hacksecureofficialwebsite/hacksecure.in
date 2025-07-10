@@ -1,4 +1,5 @@
-import React, {
+import * as React from "react";
+import {
   useEffect,
   useRef,
   useMemo,
@@ -13,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 interface ScrollRevealProps {
   children: ReactNode;
   scrollContainerRef?: RefObject<HTMLElement>;
-  enableBlur?: boolean;
   baseOpacity?: number;
   baseRotation?: number;
   blurStrength?: number;
@@ -26,23 +26,22 @@ interface ScrollRevealProps {
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   scrollContainerRef,
-  enableBlur = true,
-  baseOpacity = 0.1,
+  baseOpacity = 0,
   baseRotation = 3,
-  blurStrength = 4,
+  blurStrength = 10,
   containerClassName = "",
   textClassName = "",
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom bottom",
 }) => {
-  const containerRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const splitText = useMemo(() => {
     const text = typeof children === "string" ? children : "";
     return text.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word;
       return (
-        <span className="inline-block" key={index}>
+        <span className="inline-block word" key={index}>
           {word}
         </span>
       );
@@ -58,12 +57,13 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         ? scrollContainerRef.current
         : window;
 
+    // Rotate container
     gsap.fromTo(
       el,
-      { transformOrigin: "0% 50%", rotate: baseRotation },
+      { rotate: baseRotation, transformOrigin: "0% 50%" },
       {
-        ease: "none",
         rotate: 0,
+        ease: "none",
         scrollTrigger: {
           trigger: el,
           scroller,
@@ -71,18 +71,25 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           end: rotationEnd,
           scrub: true,
         },
-      }
+      },
     );
 
+    // Animate words with fade, rise and blur
     const wordElements = el.querySelectorAll<HTMLElement>(".word");
-
     gsap.fromTo(
       wordElements,
-      { opacity: baseOpacity, willChange: "opacity" },
       {
-        ease: "none",
+        opacity: baseOpacity,
+        y: 20,
+        filter: `blur(${blurStrength}px)`,
+        willChange: "opacity, transform, filter",
+      },
+      {
         opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
         stagger: 0.05,
+        ease: "power1.out",
         scrollTrigger: {
           trigger: el,
           scroller,
@@ -90,34 +97,14 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           end: wordAnimationEnd,
           scrub: true,
         },
-      }
+      },
     );
-
-    if (enableBlur) {
-      gsap.fromTo(
-        wordElements,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          ease: "none",
-          filter: "blur(0px)",
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: "top bottom-=20%",
-            end: wordAnimationEnd,
-            scrub: true,
-          },
-        }
-      );
-    }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [
     scrollContainerRef,
-    enableBlur,
     baseRotation,
     baseOpacity,
     rotationEnd,
@@ -127,7 +114,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   return (
     <div ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={` leading-[1.5]  ${textClassName}`}>{splitText}</p>
+      <p className={`leading-[1.5] ${textClassName}`}>{splitText}</p>
     </div>
   );
 };

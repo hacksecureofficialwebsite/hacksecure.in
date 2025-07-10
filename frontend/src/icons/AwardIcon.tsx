@@ -1,15 +1,16 @@
-export default function AwardIcon() {
+export default function AwardIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="74"
-      height="74"
+      width="100%"
+      height="100%"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"
+      {...props}
     >
       <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978" />
       <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978" />

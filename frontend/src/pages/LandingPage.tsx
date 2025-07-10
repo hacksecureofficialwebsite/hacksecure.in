@@ -14,7 +14,7 @@ export default function LandingPage() {
   return (
     <>
       <div
-        className="relative z-5 mb-[500px] md:mb-[400px] overflow-x-hidden"
+        className="relative z-5 mb-[500px] md:mb-[400px] "
         ref={scrollContainerRef}
       >
         {" "}
@@ -22,7 +22,7 @@ export default function LandingPage() {
           <Aurora
             colorStops={["#4290bc", "#338aca", "#18359a", "#0e2051"]}
             amplitude={1.0}
-            speed={0.5}
+            speed={0.2}
             blend={0.5}
           />
         </div>
@@ -30,22 +30,20 @@ export default function LandingPage() {
         <HeroSection />
         <SponsorsSection />
         <section className="py-40 bg-[#0c0c0c] relative">
-          <div className="max-w-6xl mx-auto px-8">
+          <div className="max-w-7xl mx-auto px-8">
             <ScrollReveal
-              containerClassName="text-center"
-              textClassName="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+              containerClassName=""
+              textClassName="text-4xl text-center md:text-5xl lg:text-6xl font-bold text-white leading-relaxed"
               baseOpacity={0}
-              enableBlur={true}
-              baseRotation={5}
+              baseRotation={8}
               blurStrength={10}
             >
               Build for next-gen learners and innovators.
             </ScrollReveal>
             <ScrollReveal
-              containerClassName=" text-md text-center md:text-xl font-bricolage-light mt-8"
-              textClassName="text-white/60 leading-relaxed max-w-4xl mx-auto"
+              containerClassName="  mt-8"
+              textClassName="text-[#f9f9f9]/60 font-bricolage-light text-md md:text-2xl text-center leading-relaxed max-w-4xl mx-auto"
               baseOpacity={0}
-              enableBlur={true}
               baseRotation={5}
               blurStrength={10}
             >
@@ -56,17 +54,19 @@ export default function LandingPage() {
           </div>
         </section>
         <StatsCardsSection />
-        <section className="py-24 bg-[#0c0c0c]">
+        <section className=" bg-[#0c0c0c] py-40">
           <div className="flex flex-col items-center max-w-7xl mx-auto px-4 text-center mb-16">
-            <div className="flex items-center text-xl rounded-full border-1 w-fit px-4 border-[#f9f9f9]/20 font-bold text-white/80 mb-4">
-              Why &nbsp;<span className="text-[#18359a]">Hack Secure?</span>
+            <div className="flex  items-center text-xl rounded-full border-1 w-fit px-4 border-[#f9f9f9]/20 font-bold text-white/80 mb-4">
+              Why &nbsp;<span className="text-[#338aca]">Hack Secure?</span>
             </div>
             <div className="text-4xl md:text-6xl lg:text-6xl text-white/60  mx-auto">
               Discover what makes <span>Hack Secure</span> the trusted choice
               for cybersecurity excellence
             </div>
           </div>
-          <CareersSection />
+          <div className="mx-auto w-full max-w-7xl px-4">
+            <CareersSection />
+          </div>
         </section>{" "}
         <TestimonialsSection />
       </div>

@@ -41,13 +41,13 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="bg-[#0c0c0c] h-screen flex justify-center items-center rounded-b-4xl relative overflow-hidden">
+    <section className="bg-[#0c0c0c] pb-30 md:pb-60  h-fit flex justify-center items-center rounded-b-4xl relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center ">
-          <h2 className="text-4xl md:text-5xl lg:text-9xl font-bold text-[#f9f9f9]/30 mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-9xl font-bold text-[#f9f9f9]/30 md:mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-xl uppercase text-[#f9f9f9]/60">
+          <p className="text-xs md:text-xl uppercase text-[#f9f9f9]/60">
             Trusted by industry leaders worldwide
           </p>
         </div>
@@ -63,11 +63,11 @@ export default function TestimonialsSection() {
             </div>
 
             <blockquote className="text-xl md:text-4xl font-bricolage-bold text-[#f9f9f9] text-center mb-8 leading-relaxed">
-              <span className="absolute -top-8 left-0 text-6xl md:text-8xl text-[#f9f9f9]/10 select-none">
+              <span className="absolute top-0 md:-top-8 left-0 text-6xl md:text-8xl text-[#9ebaf3]/40 select-none">
                 “
               </span>{" "}
               {testimonials[currentIndex].content}
-              <span className="absolute -bottom-8 right-0 text-6xl md:text-8xl text-[#f9f9f9]/10 select-none">
+              <span className="absolute -bottom-8 right-0 text-6xl md:text-8xl text-[#9ebaf3]/40 select-none">
                 ”
               </span>{" "}
             </blockquote>

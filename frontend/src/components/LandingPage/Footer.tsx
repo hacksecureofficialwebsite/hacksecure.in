@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
-import FBIcon from "../../icons/FBIcon";
-import LinkedInIcon from "../../icons/LinkedInIcon";
-import IGIcon from "../../icons/IGIcon";
-import GHIcon from "../../icons/GHIcon";
-
+import SocialHandles from "../SocialHandles";
 export const Footer = () => {
   return (
     <footer className="fixed z-0 h-[650px] md:h-[450px] lg:h-[430px] flex justify-center bottom-0 text-center w-full text-8xl bg-[#f9f9f9] text-[#0c0c0c] overflow-hidden">
@@ -75,24 +71,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center md:items-end gap-4 mt-12 md:mt-0">
-          <div className="flex h-full space-x-4 text-gray-500 text-2xl bg-slate-400/10   backdrop-blur-sm px-6 py-2 rounded-full border border-[#4290bc]/30 hover:shadow-xs hover:shadow-[#4290bc]/20">
-            <a href="#" className="hover:text-[#1877F2] transition-colors">
-              <FBIcon />
-            </a>
-            {/* <a href="#" className="hover:text-[#1DA1F2] transition-colors"> */}
-            {/*   <TwitterIcon /> */}
-            {/* </a> */}
-            <a href="#" className="hover:text-[#0A66C2] transition-colors">
-              <LinkedInIcon />
-            </a>
-            <a href="#" className="hover:text-[#333] transition-colors">
-              <GHIcon />
-            </a>
-            <a href="#" className="hover:text-[#E1306C] transition-colors">
-              <IGIcon />
-            </a>
-          </div>
+        <SocialHandles />
+        <div className="text-xs text-[#0c0c0c]/40">
+          © 2025 HackSecure. All rights reserved.
         </div>
       </div>
     </footer>
