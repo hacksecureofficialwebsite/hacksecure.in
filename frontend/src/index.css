@@ -5,6 +5,10 @@
 body {
   font-family: "Bricolage Grotesque";
 }
+::selection {
+  background-color: #536878;
+  color: #eae0c8;
+}
 
 /* fonts */
 @theme {

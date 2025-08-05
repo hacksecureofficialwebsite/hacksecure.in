@@ -63,7 +63,7 @@ const Auth: FC<AuthProps> = ({
         </div>
       </div>
 
-      <div className="md:w-1/2 flex items-center justify-center  p-6 mb-10 md:mb-0">
+      <div className="md:w-1/2 mb-10 md:mb-0 flex items-center justify-center  p-6">
         <div className="p-1 backdrop-blur-lg backdrop-contrast-200 outline outline-[#f9f9f9]/10 w-full max-w-md rounded-xl">
           <div className="bg-[#f9f9f9] backdrop-blur-3xl rounded-[inherit] shadow-lg p-8 w-full max-w-md">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">

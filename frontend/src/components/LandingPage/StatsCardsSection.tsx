@@ -63,7 +63,7 @@ export default function StatsCardsSection() {
         </h2>
       </div>
       <div className="max-w-fit mx-auto ">
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
+        <div className="relative grid grid-cols-2 mx-10 md:mx-0 md:grid-cols-3 gap-3 ">
           {stats.map((stat, index) => (
             <SpotlightCard
               key={index}
@@ -75,18 +75,20 @@ export default function StatsCardsSection() {
                   <stat.icon />
                 </div>
                 <div className="absolute z-20 bottom-0 p-2  flex flex-col">
-                  <h3 className="text-3xl md:text-6xl font-bold text-[#f9f9f9] mb-1">
+                  <h3 className="text-3xl md:text-6xl font-bold text-[#f9f9f9]">
                     {stat.number}
                   </h3>
-                  <p className="text-[#9ebaf3] font-semibold text-lg mb-2">
+                  <p className="text-[#9ebaf3] font-semibold text-lg">
                     {stat.label}
                   </p>
-                  <p className="group-hover:flex-grow hidden group-hover:block group-hover:opacity-100 opacity-0 transition-all group-hover:-translate-y-2 duration-500 ease-in-out text-[#f9f9f9]/60 text-base">
-                    {stat.description}
-                  </p>
+                  <div className="overflow-hidden transition-all duration-600 ease-in-out max-h-0 group-hover:max-h-40">
+                    <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-600 text-[#f9f9f9]/60 text-xs md:text-base">
+                      {stat.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="bg-gradient-to-t pointer-events-none absolute bottom-0 h-[70%] w-full from-[#0c0c0c] to-transparent"></div>
+              <div className="bg-gradient-to-t pointer-events-none absolute bottom-0 h-[70%] group-hover:h-full w-full from-[#0c0c0c] to-transparent"></div>
             </SpotlightCard>
           ))}
         </div>

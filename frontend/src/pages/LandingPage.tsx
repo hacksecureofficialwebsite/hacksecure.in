@@ -14,22 +14,22 @@ export default function LandingPage() {
   return (
     <>
       <div
-        className="relative z-5 mb-[500px] md:mb-[400px] "
+        className="relative z-5 mb-[500px] md:mb-[400px] scroll-smooth"
         ref={scrollContainerRef}
       >
         {" "}
         <div className="absolute -z-10 bg-[#0c0c0c] h-screen w-full pointer-events-none">
           <Aurora
-            colorStops={["#4290bc", "#338aca", "#18359a", "#0e2051"]}
-            amplitude={1.0}
-            speed={0.2}
-            blend={0.5}
+            colorStops={["#4290bc", "#5C7AEA", "#18359a", "#0e2051"]}
+            amplitude={0.5}
+            speed={0.3}
+            blend={0.9}
           />
         </div>
         <Navbar />
         <HeroSection />
         <SponsorsSection />
-        <section className="py-40 bg-[#0c0c0c] relative">
+        <section id="learn" className="py-40 bg-[#0c0c0c] relative">
           <div className="max-w-7xl mx-auto px-8">
             <ScrollReveal
               containerClassName=""
