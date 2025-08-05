@@ -7,10 +7,10 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => {
-    const errorMessage =
-      error.response.data.errorMessage ?? "Unknown Error Occurred!";
-    return Promise.reject(error);
-  },
+  // (error) => {
+  //   const errorMessage =
+  //     error.response.data.errorMessage ?? "Unknown Error Occurred!";
+  //   return Promise.reject(error);
+  // },
 );
 export default axiosInstance;

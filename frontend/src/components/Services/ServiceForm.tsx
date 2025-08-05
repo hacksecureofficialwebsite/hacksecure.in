@@ -6,7 +6,6 @@ import Silk from "../../UI/Silk";
 import { Link, useSearchParams } from "react-router-dom";
 import SubmitApplicationButton from "../../UI/SubmitApplicationButton";
 import Dropdown from "../../icons/Dropdown";
-import { gradientMap } from "../../utils/gradientMap";
 
 const SERVICE_OPTIONS = {
   workshops: { name: "Workshops", query: "workshops" },
@@ -28,7 +27,7 @@ const ServiceForm: React.FC = () => {
   const isValidQuery = typeParam && typeParam in SERVICE_OPTIONS;
   const initialQuery = isValidQuery ? (typeParam as ServiceQuery) : "";
   const [selectedService, setSelectedService] = useState<ServiceQuery | "">(
-    initialQuery,
+    initialQuery
   );
 
   const current = selectedService ? serviceContent[selectedService] : null;
@@ -79,14 +78,11 @@ const ServiceForm: React.FC = () => {
               {current ? (
                 <div className="gap-3 flex flex-wrap ">
                   {Object.entries(
-                    current.topics.reduce(
-                      (acc, topic) => {
-                        acc[topic.category] = acc[topic.category] || [];
-                        acc[topic.category].push(topic.name);
-                        return acc;
-                      },
-                      {} as Record<string, string[]>,
-                    ),
+                    current.topics.reduce((acc, topic) => {
+                      acc[topic.category] = acc[topic.category] || [];
+                      acc[topic.category].push(topic.name);
+                      return acc;
+                    }, {} as Record<string, string[]>)
                   ).map(([category, topicNames]) => (
                     <div
                       key={category}
