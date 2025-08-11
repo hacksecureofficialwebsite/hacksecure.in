@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="hero-section relative z-10 px-4 sm:px-6 lg:px-20 flex items-center justify-center max-w-7xl mx-auto pt-24 sm:pt-32 lg:pt-40"
+      className="hero-section h-screen relative z-10 px-4 sm:px-6 lg:px-20 flex items-center justify-center max-w-7xl mx-auto pt-24 sm:pt-32 lg:pt-40"
     >
       <div className="w-full">
         {/* Tag */}
